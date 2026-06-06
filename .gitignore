@@ -1,0 +1,29 @@
+# IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Gradle/Build
+.gradle/
+**/build/
+**/out/
+
+# Local/Secrets
+local.properties
+.env
+.env.local
+.env.*.local
+**/local.properties
+**/.env
+**/.env.local
+**/.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Crash logs/temp files
+*.log
+*.tmp
+*.bak

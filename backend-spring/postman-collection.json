@@ -1,0 +1,313 @@
+{
+  "info": {
+    "_postman_id": "codequest-api",
+    "name": "CodeQuest API",
+    "description": "API endpoints for CodeQuest backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Profiles",
+      "item": [
+        {
+          "name": "Get My Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{firebase_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/profiles/me",
+              "host": ["{{base_url}}"],
+              "path": ["profiles", "me"]
+            }
+          }
+        },
+        {
+          "name": "Get Top Players",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/profiles/top?limit=25",
+              "host": ["{{base_url}}"],
+              "path": ["profiles", "top"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "25"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{firebase_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"Neon Hiro\",\n  \"avatarUrl\": \"https://example.com/avatar.png\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/profiles/me",
+              "host": ["{{base_url}}"],
+              "path": ["profiles", "me"]
+            }
+          }
+        },
+        {
+          "name": "Add XP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{firebase_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deltaXp\": 150\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/profiles/me/xp",
+              "host": ["{{base_url}}"],
+              "path": ["profiles", "me", "xp"]
+            }
+          }
+        },
+        {
+          "name": "Add Wins",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{firebase_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deltaWins\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/profiles/me/wins",
+              "host": ["{{base_url}}"],
+              "path": ["profiles", "me", "wins"]
+            }
+          }
+        },
+        {
+          "name": "Get XP History",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{firebase_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/profiles/me/xp-history?limit=20",
+              "host": ["{{base_url}}"],
+              "path": ["profiles", "me", "xp-history"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Level Progress",
+      "item": [
+        {
+          "name": "Get Level Progress",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{firebase_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/levels/progress?language=python&track=beginner&level_id=1",
+              "host": ["{{base_url}}"],
+              "path": ["levels", "progress"],
+              "query": [
+                {
+                  "key": "language",
+                  "value": "python"
+                },
+                {
+                  "key": "track",
+                  "value": "beginner"
+                },
+                {
+                  "key": "level_id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Level Progress",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{firebase_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"language\": \"python\",\n  \"track\": \"beginner\",\n  \"levelId\": 1,\n  \"stars\": 3,\n  \"completed\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/levels/progress",
+              "host": ["{{base_url}}"],
+              "path": ["levels", "progress"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Learning Context",
+      "item": [
+        {
+          "name": "Get Learning Context",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{firebase_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/levels/learning-context?language=python&track=beginner&level_id=1",
+              "host": ["{{base_url}}"],
+              "path": ["levels", "learning-context"],
+              "query": [
+                {
+                  "key": "language",
+                  "value": "python"
+                },
+                {
+                  "key": "track",
+                  "value": "beginner"
+                },
+                {
+                  "key": "level_id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Learning Context",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{firebase_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"language\": \"python\",\n  \"track\": \"beginner\",\n  \"levelId\": 1,\n  \"failedCommands\": \"add(a b)\",\n  \"lastError\": \"missing colon\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/levels/learning-context",
+              "host": ["{{base_url}}"],
+              "path": ["levels", "learning-context"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/health",
+              "host": ["{{base_url}}"],
+              "path": ["health"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080/api/v1",
+      "type": "string"
+    },
+    {
+      "key": "firebase_token",
+      "value": "YOUR_FIREBASE_ID_TOKEN",
+      "type": "string"
+    }
+  ]
+}
+

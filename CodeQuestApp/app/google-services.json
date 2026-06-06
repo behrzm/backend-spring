@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "247323068585",
+    "project_id": "codequestdiplomaproject",
+    "storage_bucket": "codequestdiplomaproject.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247323068585:android:055ed765a9a59f2d5201b8",
+        "android_client_info": {
+          "package_name": "com.prolearn.codecraftfront"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247323068585-j4k38iv15k6oh80p3ev3p1232jbk7df0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.prolearn.codecraftfront",
+            "certificate_hash": "7626b82f566a279dcb19d3f3d2e6c06766f4a6bf"
+          }
+        },
+        {
+          "client_id": "247323068585-85uhcvdcfoi2vj789voqi0tk4kq4l25c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpWGynL8MGmcY6MA48s42UbSFVy4v5Fhg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247323068585-85uhcvdcfoi2vj789voqi0tk4kq4l25c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

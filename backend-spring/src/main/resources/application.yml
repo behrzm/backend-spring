@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: codequest-backend
+  jpa:
+    hibernate:
+      # Изменено с validate на update для автоматического обновления схемы БД
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/codequest}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+
+firebase:
+  config:
+    database-url: ${FIREBASE_DATABASE_URL}
+    project-id: ${FIREBASE_PROJECT_ID}
+    credentials-path: ${FIREBASE_CREDENTIALS_PATH:/config/firebase-adminsdk.json}
+
+supabase:
+  url: ${SUPABASE_URL:http://localhost:54321}
+  key: ${SUPABASE_KEY}
+  jwt-secret: ${SUPABASE_JWT_SECRET}
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api/v1
+
+logging:
+  level:
+    root: INFO
+    com.codequest: DEBUG
+    org.springframework.web: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/codequest.log
+
+springdoc:
+  api-docs:
+    path: /docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+
+groq:
+  api-key: ${GROQ_API_KEY:}
+  model: ${GROQ_MODEL:llama-3.3-70b-versatile}

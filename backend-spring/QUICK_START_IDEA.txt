@@ -1,0 +1,145 @@
+🎯 ФИНАЛЬНАЯ ИНСТРУКЦИЯ - ЗАПУСК BACKEND'А В INTELLIJ IDEA
+
+════════════════════════════════════════════════════════════
+
+✅ ЧТО БЫЛО СДЕЛАНО:
+
+1️⃣ Переписано на Java 17 (всё на Java, не Kotlin)
+2️⃣ Исправлена Gradle конфигурация (удалён MaxPermSize)
+3️⃣ Добавлена поддержка .env файлов
+4️⃣ Настроена Supabase интеграция
+5️⃣ Подготовлено для запуска в IntelliJ IDEA
+
+════════════════════════════════════════════════════════════
+
+🚀 ЗАПУСК В IDEAJ IDEA:
+
+ШАГ 1: Открыть проект
+─────────────────────
+File → Open → C:\Users\behru\Downloads\CodeQuestApp\backend-spring
+└─ ИЛИ просто перетащить папку в IntelliJ
+
+ШАГ 2: Дождаться загрузки
+──────────────────────────
+Внизу экрана видно: "Gradle: xxx tasks" и статус синхронизации
+Подождите пока завершится ✅
+
+ШАГ 3: Запустить Backend
+─────────────────────────
+СПОСОБ 1 (горячая клавиша):
+├─ Shift + F10
+
+СПОСОБ 2 (меню):
+├─ Run → Run 'CodeQuest Backend'
+
+СПОСОБ 3 (кнопка):
+├─ Откройте src/main/java/com/codequest/CodeQuestApplication.java
+├─ Нажмите на зелёный ▶ слева от "public class CodeQuestApplication"
+
+ШАГ 4: Проверить запуск
+───────────────────────
+Отройте на http://localhost:8080/api/v1/swagger-ui.html
+
+Если видите страницу Swagger с API - ВСЁ РАБОТАЕТ! ✅
+
+════════════════════════════════════════════════════════════
+
+⚙️ КОНФИГУРАЦИЯ (если нужна Supabase):
+
+1. Откройте файл: .env (в корне проекта backend-spring/)
+
+2. Замените значения:
+   ├─ SPRING_DATASOURCE_URL
+   ├─ FIREBASE_PROJECT_ID
+   ├─ SUPABASE_URL
+   ├─ SUPABASE_ANON_KEY
+   └─ SUPABASE_SERVICE_ROLE_KEY
+
+   Получить из Supabase: https://app.supabase.com
+   → Settings → API → проект
+
+3. Сохраните файл
+
+════════════════════════════════════════════════════════════
+
+🌐 ПРОТЕСТИРОВАТЬ API:
+
+ПОД АДРЕСОМ:
+└─ http://localhost:8080/api/v1/swagger-ui.html
+
+Там вы увидите все 11 эндпоинтов:
+✓ GET    /profiles/me
+✓ GET    /profiles/top
+✓ PUT    /profiles/me
+✓ POST   /profiles/me/xp
+✓ POST   /profiles/me/wins
+✓ GET    /profiles/me/xp-history
+✓ GET    /levels/progress
+✓ PUT    /levels/progress
+✓ GET    /levels/learning-context
+✓ PUT    /levels/learning-context
+✓ GET    /health
+
+════════════════════════════════════════════════════════════
+
+❌ ЕСЛИ НЕ ЗАПУСКАЕТСЯ:
+
+ОШИБКА 1: "Gradle sync failed"
+Решение:
+  └─ File → Sync Now (Ctrl+Shift+I)
+  └─ Или нажмите на кнопку "Retry"
+
+ОШИБКА 2: "java.lang.UnsupportedClassVersionError"
+Решение:
+  └─ File → Project Structure
+  └─ Project → SDK → выберите Java 17+
+  └─ Нажмите OK
+
+ОШИБКА 3: "Port 8080 already in use"
+Решение:
+  └─ Отредактируйте .env
+  └─ SERVER_PORT=8081
+  └─ Перезагрузите приложение
+
+ОШИБКА 4: "Connection refused" к БД
+Решение:
+  └─ Убедитесь PostgreSQL запущен
+  └─ Или используйте Supabase (видеть SUPABASE_SETUP.md)
+
+════════════════════════════════════════════════════════════
+
+📁 ФАЙЛЫ ДЛЯ ЧТЕНИЯ:
+
+КРАТКИЕ:
+├─ START_HERE.txt                  ← Начните отсюда!
+├─ RUN_IN_INTELLIJ.md              ← Запуск в IDE
+
+ПОЛНЫЕ:
+├─ SUPABASE_SETUP.md               ← Подключение Supabase
+├─ API_EXAMPLES.md                 ← Примеры запросов
+├─ ARCHITECTURE.md                 ← Устройство приложения
+├─ RUN_WITH_ENV.md                 ← Работа с .env
+
+════════════════════════════════════════════════════════════
+
+🔐 ДАННЫЕ:
+
+✅ Все моки удалены
+✅ Данные берутся из реальной БД (PostgreSQL / Supabase)
+✅ Firebase только для аутентификации
+✅ Суперба для хранения данных
+
+════════════════════════════════════════════════════════════
+
+🛠️ ТЕХНИКА:
+
+Java 17 + Spring Boot 3.2.0 + Spring Data JPA + PostgreSQL
+
+════════════════════════════════════════════════════════════
+
+✨ ВСЁ ГОТОВО К ЗАПУСКУ!
+
+Просто откройте проект в IntelliJ IDEA и нажмите Shift+F10 🚀
+
+════════════════════════════════════════════════════════════
+
